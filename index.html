@@ -60,18 +60,17 @@
                 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,<br>
                 хорошо или плохо работает почта.
         </p>
-        <p><h3>Как мы измеряем</h3></p>
+        <h3>Как мы измеряем</h3>
         <p>
             Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять<br>
             причину замедления: медленнее стал отвечать сервер либо слишком долго<br>
             выполняется JavaScript. Выглядит это примерно так:<br>
-            <pre>
-                <code>
-                    this.timings['look-ma-im-start'] = Date.now();<br>
-                    this.timings['look-ma-finish'] = Date.now();
-                </code>
-            </pre>
+            <code>
+                this.timings['look-ma-im-start'] = Date.now();<br>
+                this.timings['look-ma-finish'] = Date.now();
+            </code>
         </p>
+        <p>
             C помощью <code>Date.now()</code>мы получаем текущее время. Все тайминги собираются и при<br>
             отправке рассчитываются. На этапах разница между “end” и “start” не считается,<br>
             а все вычисления производятся в конце:<br>
@@ -104,15 +103,15 @@
             RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, — но по разным причинам они<br>
             не получили должного распространения в браузерах и на серверах.
         </p>
-        <p> 
+        <p>
             Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,<br>
             начали искать реализации diff на JS. На популярных хостингах кода нашли<br>
-            библиотеки:<br>
+            библиотеки:
+        </p>
             <ul>
-                    <li>VCDiff</li>
-                    <li>google-diff-patch-match</li>
+                <li>VCDiff</li>
+                <li>google-diff-patch-match</li>
             </ul>
-        </p>    
         <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
         <table>
             <thead>
@@ -188,7 +187,7 @@
             дано:<em>&epsilon;, x<sub>0</sub></em><br>
             инициализировать <dfn>H<sub>0</sub></dfn><br>
             <dfn>k</dfn>=0<br>
-            <strong>while</strong>||&nabla;<dfn>f<sub>k</sub></dfn>|| &gt; &epsilon;</dfn><br>
+            <strong>while</strong>|| &nabla;<em>f<sub>k</sub></em>|| &gt; &epsilon;<br>
             &emsp;найти направление <dfn>p<sub>k</sub> = -C <sub>k</sub>&nabla; f<sub>k</sub></dfn><br>
             &emsp;вычислить <dfn>x<sub>k+1</sub> = x<sub>k</sub> + &alpha; <sub>k</sub> p<sub>k</sub>, &alpha; <sub>k</sub></dfn> удовлетворяет условиям Вольфе<br>
             &emsp;обозначить <dfn>s<sub>k</sub> = x<sub>k+1</sub>-x<sub>k</sub>и y<sub>k</sub> = &nabla; f<sub>k+1</sub> - &nabla; f<sub>k</sub></dfn><br>
@@ -217,6 +216,20 @@
                         <th>Без патча</th>
                     </tr>
                 </thead>
+                <tr>
+                    <td>7.7.20</td>
+                    <td>|</td>
+                    <td>397</td>
+                    <td>|</td>
+                    <td>174 549</td>
+                </tr>
+                <tr>
+                    <td>7.7.21</td>
+                    <td>|</td>
+                    <td>383</td>
+                    <td>|</td>
+                    <td>53 995</td>
+                </tr>
                 <tfoot>
                     <tr>
                         <td>7.7.22</td>
@@ -226,22 +239,6 @@
                         <td>3 995</td>
                     </tr>
                 </tfoot>
-                <tbody>
-                    <tr>
-                        <td>7.7.20</td>
-                        <td>|</td>
-                        <td>397</td>
-                        <td>|</td>
-                        <td>174 549</td>
-                    </tr>
-                    <tr>
-                        <td>7.7.21</td>
-                        <td>|</td>
-                        <td>383</td>
-                        <td>|</td>
-                        <td>53 995</td>
-                    </tr>
-                </tbody>
         </table>
         <br>
         <address>
